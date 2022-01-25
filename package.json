@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "application": "node index.js",
+    "debug": "node index.js debug",
+    "deploy": "node deploy_commands.js",
+    "deploy-guild": "node deploy_guild_commands.js"
+  }
+}
