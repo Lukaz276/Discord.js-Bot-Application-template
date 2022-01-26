@@ -2,7 +2,7 @@
 module.exports = {
     name: "interactionCreate",
     once: false,
-    async execute(client){
+    async execute(interaction){
 
         if (!interaction.isCommand()) return;
 
