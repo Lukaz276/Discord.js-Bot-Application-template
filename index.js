@@ -6,9 +6,23 @@ const client = new Client({intents: [Intents.FLAGS.GUILDS]});
 
 
 /**
+ * Handling for all buttons in ./buttons
+ */
+// @ts-ignore
+client.buttons = new Collection();
+const buttonFiles = fs.readdirSync('./buttons').filter((file) => file.endsWith('.js'));
+
+for(const file of buttonFiles){
+	const button = require(`./buttons/${file}`);
+	// @ts-ignore
+	client.buttons.set(button.customId, button);
+}
+
+
+
+/**
  * Command handling for all files in ./commands
  */
-
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter((file) => file.endsWith('.js'));
 
@@ -17,7 +31,6 @@ for (const file of commandFiles) {
 	// @ts-ignore
 	client.commands.set(command.data.name, command);
 }
-
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
@@ -36,7 +49,6 @@ client.on('interactionCreate', async interaction => {
 
 
 
-
 /**
  * Event Handling of all files in ./events
  */
@@ -49,7 +61,6 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
-
 
 
 client.login(token);
