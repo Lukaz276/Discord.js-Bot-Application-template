@@ -1,4 +1,4 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require('fs');
 
 const { token } = require('./config.json');
@@ -63,4 +63,9 @@ for (const file of eventFiles) {
 }
 
 
+<<<<<<< HEAD
 client.login(token);
+=======
+
+client.login(token);
+>>>>>>> b93915934def9dd54d8044c23130caee2f058456
